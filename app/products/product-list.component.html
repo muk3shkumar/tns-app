@@ -1,5 +1,4 @@
-<div>
-  <nav class="navbar navbar-default">
+<nav class="navbar navbar-default">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -40,7 +39,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{currentUser.firstName}} <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="#">Profile</a></li>
               <li><a href="#">Settings</a></li>
@@ -52,10 +51,37 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
+<div class="container">
 
-﻿<div class="col-md-6 col-md-offset-2">
-    <h1>Hi {{currentUser.firstName}}!</h1>
-    <p>Welcome to TNS Account Management System</p>
+<div class="row">
+  <h1>Products</h1>
+    <a routerLink="add" class="btn btn-success">Add Product</a>
+</div>
+
+<div class="row">
+  <table class="table products-table table-bordered table-hover">
+      <tr class="active">
+          <th>SKU</th>
+          <th>Product Name</th>
+          <th>Brand</th>
+          <th>MRP</th>
+          <th>Selling Price</th>
+          <th>Margin</th>
+          <th class="delete-column">Action</th>
+      </tr>
+      <tr *ngFor="let product of products">
+          <td><a [routerLink]="['edit', product.id]">{{product.sku}}</a></td>
+          <td>{{product.name}}</td>
+          <td>{{product.brand}}</td>
+          <td>₹ {{product.mrp}}</td>
+          <td>₹ {{product.sellingPrice}}</td>
+          <td>{{product.margin}}</td>
+          <td><a (click)="deleteProduct(product.id)" class="btn btn-xs btn-danger">Delete</a></td>
+      </tr>
+  </table>
+</div>
 
 </div>
+<div class="view-side-form">
+    <router-outlet></router-outlet>
 </div>

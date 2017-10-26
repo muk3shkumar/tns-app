@@ -1,0 +1,43 @@
+<div class="side-form">
+    <h1>{{title}}</h1>
+    <div class="form-container">
+        <form (ngSubmit)="saveOrder()">
+            <div class="form-group">
+                <label for="name">Order ID</label>
+                <input type="text" name="name" [(ngModel)]="order.kid" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="name">SKU</label>
+                <input type="text" name="name" [(ngModel)]="order.sku" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="name">Product Name</label>
+                <input type="text" name="name" [(ngModel)]="order.productName" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="name">Shipping Charges collected</label>
+                <input type="text" name="price" [(ngModel)]="order.shippingChargeCollected" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="name">Shipping Charges paid</label>
+                <input type="text" name="price" [(ngModel)]="order.shippingChargePaid" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="name">Commission</label>
+                <input type="text" name="price" [(ngModel)]="order.commission" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="name">Settlement Value</label>
+                <input type="text" name="price" [(ngModel)]="order.settlementValue" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="name">Profit/Loss</label>
+                <input type="text" name="price" [(ngModel)]="order.profitOrLoss" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <a class="btn btn-default" routerLink="/orders">Cancel</a>
+                <button class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+</div>

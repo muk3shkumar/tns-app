@@ -1,5 +1,4 @@
-<div>
-  <nav class="navbar navbar-default">
+<nav class="navbar navbar-default">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -40,7 +39,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{currentUser.firstName}} <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="#">Profile</a></li>
               <li><a href="#">Settings</a></li>
@@ -52,10 +51,39 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
+<div class="container">
 
-﻿<div class="col-md-6 col-md-offset-2">
-    <h1>Hi {{currentUser.firstName}}!</h1>
-    <p>Welcome to TNS Account Management System</p>
+<div class="row">
+  <h1>Orders</h1>
+    <a routerLink="add" class="btn btn-success">Add Orders</a>
+</div>
+
+<div class="row">
+  <table class="table products-table table-bordered table-hover">
+      <tr class="active">
+          <th>Order ID</th>
+          <th>SKU</th>
+          <th>Product Name</th>
+          <th>Shipping Charge collected</th>
+          <th>Shipping Charge paid</th>
+          <th>Commission</th>
+          <th>Settlement Value</th>
+          <th>Profit/Loss</th>
+      </tr>
+      <tr *ngFor="let order of orders">
+          <td><a [routerLink]="['edit', order.id]">{{order.id}}</a></td>
+          <td>{{order.sku}}</td>
+          <td>{{order.productName}}</td>
+          <td>{{order.shippingChargeCollected}}</td>
+          <td>{{order.shippingChargePaid}}</td>
+          <td>{{order.commission}}</td>
+          <td>{{order.settlementValue}}</td>
+          <td>{{order.profitOrLoss}}</td>
+      </tr>
+  </table>
+</div>
 
 </div>
+<div class="view-side-form">
+    <router-outlet></router-outlet>
 </div>

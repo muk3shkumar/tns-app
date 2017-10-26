@@ -1,0 +1,35 @@
+<div class="side-form">
+    <h1>{{title}}</h1>
+    <div class="form-container">
+        <form (ngSubmit)="saveProduct()">
+            <div class="form-group">
+                <label for="name">SKU</label>
+                <input type="text" name="name" [(ngModel)]="product.sku" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="name">Product Name</label>
+                <input type="text" name="name" [(ngModel)]="product.name" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="name">Brand</label>
+                <input type="text" name="name" [(ngModel)]="product.brand" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="name">MRP</label>
+                <input type="text" name="price" [(ngModel)]="product.mrp" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="name">Selling Price</label>
+                <input type="text" name="price" [(ngModel)]="product.sellingPrice" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="name">Margin</label>
+                <input type="text" name="price" [(ngModel)]="product.margin" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <a class="btn btn-default" routerLink="/products">Cancel</a>
+                <button class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
